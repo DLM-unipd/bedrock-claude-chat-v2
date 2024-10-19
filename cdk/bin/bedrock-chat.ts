@@ -43,7 +43,7 @@ const USE_STAND_BY_REPLICAS: boolean =
 // WAF for frontend
 // 2023/9: Currently, the WAF for CloudFront needs to be created in the North America region (us-east-1), so the stacks are separated
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
-const waf = new FrontendWafStack(app, `FrontendWafStack`, {
+const waf = new FrontendWafStack(app, `LucreziaTestV2FrontendWafStack`, {
   env: {
     // account: process.env.CDK_DEFAULT_ACCOUNT,
     region: "us-east-1",
