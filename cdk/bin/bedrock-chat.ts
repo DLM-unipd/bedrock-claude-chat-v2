@@ -3,7 +3,7 @@ import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
 import { BedrockChatStack } from "../lib/bedrock-chat-stack";
 import { BedrockRegionResourcesStack } from "../lib/bedrock-region-resources";
-//import { FrontendWafStack } from "../lib/frontend-waf-stack";
+import { FrontendWafStack } from "../lib/frontend-waf-stack";
 import { TIdentityProvider } from "../lib/utils/identity-provider";
 
 const app = new cdk.App();
