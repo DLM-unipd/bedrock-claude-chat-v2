@@ -3,7 +3,7 @@ import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
 import { BedrockChatStack } from "../lib/bedrock-chat-stack";
 import { BedrockRegionResourcesStack } from "../lib/bedrock-region-resources";
-import { FrontendWafStack } from "../lib/frontend-waf-stack";
+//import { FrontendWafStack } from "../lib/frontend-waf-stack";
 import { TIdentityProvider } from "../lib/utils/identity-provider";
 
 const app = new cdk.App();
@@ -75,8 +75,9 @@ const chat = new BedrockChatStack(app, `BedrockChatStack`, {
   },
   crossRegionReferences: true,
   bedrockRegion: BEDROCK_REGION,
-  webAclId: waf.webAclArn.value,
-  enableIpV6: waf.ipV6Enabled,
+  //webAclId: waf.webAclArn.value,
+  //enableIpV6: waf.ipV6Enabled,
+  enableIpV6: 0,
   identityProviders: IDENTITY_PROVIDERS,
   userPoolDomainPrefix: USER_POOL_DOMAIN_PREFIX,
   publishedApiAllowedIpV4AddressRanges:
@@ -90,5 +91,5 @@ const chat = new BedrockChatStack(app, `BedrockChatStack`, {
   documentBucket: bedrockRegionResources.documentBucket,
   useStandbyReplicas: USE_STAND_BY_REPLICAS,
 });
-chat.addDependency(waf);
+//chat.addDependency(waf);
 chat.addDependency(bedrockRegionResources);
